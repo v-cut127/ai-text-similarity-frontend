@@ -34,7 +34,7 @@ const handleCompare = async () => {
   try {
     setLoading(true);
 
-    const result = await compareTexts(text1, text2);
+    const result = await compareTexts(text1, text2, model);
 
     if (!result || typeof result.similarity !== "number") {
       throw new Error("Invalid response from server");
