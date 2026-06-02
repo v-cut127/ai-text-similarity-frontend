@@ -1,20 +1,14 @@
-export async function compareTexts(
-  text1: string,
-  text2: string
-) {
-  const response = await fetch(
-    "http://localhost:5000/api/compare",
+export async function compareTexts(text1, text2, model) {
+  const res = await fetch(
+    "https://ai-text-similarity-backend.onrender.com/api/compare",
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        text1,
-        text2,
-      }),
+      body: JSON.stringify({ text1, text2, model }),
     }
   );
 
-  return response.json();
+  return res.json();
 }
